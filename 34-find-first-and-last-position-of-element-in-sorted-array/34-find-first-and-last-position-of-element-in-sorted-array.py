@@ -9,7 +9,7 @@ class Solution:
             
             if nums[mid]==target:
                 p=mid
-                h=mid-1
+                h=mid-1# here once we find the element try to check its left to find whetehr the same element is there in its left such we can get the element in the left most side
             elif target<nums[mid]:
                 h=mid-1
             elif target>nums[mid]:
@@ -24,7 +24,7 @@ class Solution:
             
             if nums[mid]==target:
                 po=mid
-                l=mid+1
+                l=mid+1# here once we find the element try to check its right to find whetehr the same element is there in its right such we can get the element in the right most side
             elif target>nums[mid]:
                 l=mid+1
                 
