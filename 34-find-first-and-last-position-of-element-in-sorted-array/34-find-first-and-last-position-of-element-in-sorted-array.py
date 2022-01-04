@@ -9,7 +9,8 @@ class Solution:
             
             if nums[mid]==target:
                 p=mid
-            if target<=nums[mid]:
+                h=mid-1
+            elif target<nums[mid]:
                 h=mid-1
             elif target>nums[mid]:
                 l=mid+1
@@ -23,10 +24,10 @@ class Solution:
             
             if nums[mid]==target:
                 po=mid
-                print(po)
-            if target>=nums[mid]:
                 l=mid+1
-                print(mid)
+            elif target>nums[mid]:
+                l=mid+1
+                
             else:
                 
                 h=mid-1
