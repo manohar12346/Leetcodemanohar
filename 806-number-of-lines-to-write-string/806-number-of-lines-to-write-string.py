@@ -8,16 +8,7 @@ class Solution:
                 su=widths[ord(s[i])-ord('a')]
                 c=c+1
                 
-            if su==100:
-                su=0
-                if i==len(s)-1:
-                    
-                    su=100
-                if i!=len(s)-1:
-                    
-                
-                    c=c+1
-                
+            
         
                 
                 
