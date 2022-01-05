@@ -4,10 +4,12 @@ class Solution:
         
         while(len(stones)>1):
             stones=sorted(stones)
-            if len(stones)==2:
-                if stones[0]==stones[1]:
-                    return 0
+            
             if stones[-1]==stones[-2]:
+                if len(stones)==2:
+                    if stones[0]==stones[1]:
+                        return 0
+                
                 del stones[-1]
                 del stones[-1]
             else:
