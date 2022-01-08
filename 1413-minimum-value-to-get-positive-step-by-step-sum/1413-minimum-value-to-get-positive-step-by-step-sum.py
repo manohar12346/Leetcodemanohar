@@ -1,21 +1,20 @@
 class Solution:
     def minStartValue(self, nums: List[int]) -> int:
+        s=0
         c=0
-        o=0
-        i=0
-        
-        while(c!=1):
-            i=i+1
-            o=i
+        for i in range(0,len(nums)):
             
-            for p in range(len(nums)):
-                o=o+nums[p]
-                if o<1:
-                    c=0
-                    break
-                c=1
-           
-        return i
+            s=s+nums[i]
+            if s <1:
+                c=c+(1-s)
+                s=s+(1-s)
+            
+            print(s,c)        
+        if c==0:
+            return 1
+        return c
+                
+       
                     
                 
             
