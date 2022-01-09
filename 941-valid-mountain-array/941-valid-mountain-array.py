@@ -8,8 +8,7 @@ class Solution:
                 c=1
             elif arr[i]>arr[i+1] and (c==1 or c==2):
                 c=2
-            elif arr[i]>arr[i+1] :
-                return False
+           
             else:
                 return False
         if c==2:
