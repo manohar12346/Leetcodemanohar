@@ -3,24 +3,20 @@ class Solution:
         
         nums=sorted(nums)
         ans=[]
-        
         if len(nums)<=1:
             return []
         for i in range(len(nums)):
             l=i+1
-            h=len(nums)-1
-            while(l<h):
-                s=nums[l]+nums[h]+nums[i]
-                if s<0:
+            r=len(nums)-1
+            while(l<r):
+                su=nums[i]+nums[l]+nums[r]
+                if su<0:
                     l=l+1
-                if s>0:
-                    h=h-1
-                if s==0:
-                    if [nums[i],nums[l],nums[h]] not in ans:
-                        ans.append([nums[i],nums[l],nums[h]])
+                elif su>0:
+                    r=r-1
+                else:
+                    if [nums[i],nums[l],nums[r]] not in ans:
+                        ans.append([nums[i],nums[l],nums[r]])
                     l=l+1
-                    h=h-1
-        
+                    r=r-1
         return ans
-                
-                    
