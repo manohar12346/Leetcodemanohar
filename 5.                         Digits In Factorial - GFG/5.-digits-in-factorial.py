@@ -2,14 +2,14 @@
 
 class Solution:
     def digitsInFactorial(self,N):
-        n=N
-        if (n < 0):
-            return 0
-        if (n <= 1):
-            return 1
-        x = ((n * math.log10(n / math.e) +
-              math.log10(2 * math.pi * n) /2.0));
-        return math.floor(x) + 1
+        sum=0.0
+        j=1
+        while(j<=N):
+            #sum stores log(j) + log(j+1) + ... + log(N) 
+            sum+=(math.log10(j))
+            j+=1
+            
+        return 1+ math.floor(sum)
         
         
         # code here
