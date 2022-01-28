@@ -3,26 +3,14 @@
 class Solution:
     def segregate0and1(self, arr, n):
         # code here
-        i=0
-        j=len(arr)-1
-        one=-1
-        ze=-1
-        while(i<j):
-            if arr[i]==1 and one==-1:
-                one=i
-            if arr[j]==0 and ze==-1:
-                ze=j
-            if one!=-1 and ze!=-1:
-                arr[one],arr[ze]=arr[ze],arr[one]
-                one,ze=-1,-1
-                
-            if one==-1 and ze!=-1:
-                i=i+1
-            if one!=-1 and ze==-1:
-                j=j-1
-            if one==-1 and ze==-1:
-                i=i+1
-                j=j-1
+        j=0
+        for i in range(len(arr)):
+            if arr[i]==0:
+                arr[j]=0
+                j=j+1
+        for i in range(j,len(arr)):
+            arr[i]=1
+            
         return arr
                 
             
