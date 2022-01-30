@@ -17,8 +17,7 @@ class Solution:
                 break
             if fast.next==None:
                 break
-            if fast.next.next==None:
-                break
+            
             slow=slow.next
             fast=fast.next.next
             if fast==slow:
