@@ -1,19 +1,21 @@
 #User function Template for python3
 class Solution:
 	def subsetSums(self, arr, N):
-	    ans=[]
-	    def sub(arr,new=[]):
+	    x=[]
+	    def subset(arr,an,su):
 	        if len(arr)==0:
-	            ans.append(sum(new))
+	            x.append(su)
 	        else:
-	        
-    	        sub(arr[1::],new+[arr[0]])
-    	        sub(arr[1::],new)
-	    sub(arr)
+	            
+	            subset(arr[1:],an,su)
+	            subset(arr[1:],an+[arr[0]],su+arr[0])
+	    subset(arr,[],0)
+	    return sorted(x)
 	    
+	   
 	    
 	        
-	    return ans
+	    
 	            
 	            
 		# code here
