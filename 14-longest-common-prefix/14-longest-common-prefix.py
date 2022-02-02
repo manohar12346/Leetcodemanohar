@@ -6,16 +6,19 @@ class Solution:
             if len(i)<d:
                 d=len(i)
                 a=i
-        ans=100000
-        for i in range(len(strs)):
-            co=0
-            for j in range(0,d):
-                if strs[i][j]==a[j]:
-                    co=co+1
+        ans=0
+        o=0
+        for i in range(len(a)):
+            c=0
+            for j in strs:
+                if j[i]==a[i]:
+                    c=c+1
                 else:
+                    o=1
                     break
-            if co<ans:
-                ans=co
-                print(ans)
+            if c==len(strs):
+                ans=ans+1
+            if o==1:
+                break
         return a[0:ans]
-                
+                    
