@@ -5,7 +5,7 @@ class Solution:
         l,h=inte[0][0],inte[0][1]
         ans=[]
         
-        print(inte)
+        
         for i in range(1,len(inte)):
             if h>=inte[i][0]:
                 if h>inte[i][1]:
