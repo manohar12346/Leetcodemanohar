@@ -17,11 +17,7 @@ class Solution:
                         a[0]=1
             else:
                 if r1.val==r2.val:
-                    if (r1.left and not(r2.left)) or (r2.left and not(r1.left)):
-                        a[0]=1
-                    if (not(r2.right) and (r1.right)) or (not(r1.right) and (r2.right)):
-                        a[0]=1
-                    else:
+                        
                         che(r1.left,r2.left)
                         che(r1.right,r2.right)
                                                 
