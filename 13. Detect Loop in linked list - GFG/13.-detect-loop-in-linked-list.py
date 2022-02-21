@@ -15,8 +15,7 @@ class Solution:
             s=head
             d=head
             while(d):
-                if not(s.next):
-                    return False
+                
                 if not(d.next):
                     return False
                 else:
