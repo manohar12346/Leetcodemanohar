@@ -6,29 +6,29 @@
 #         self.right = right
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        a=[0]
-        def che(r1,r2):
-            
-            if not(r1) and not(r2):
-                return 
-            elif r1 and not(r2):
-                        a[0]=1
-            elif not(r1) and (r2):
-                        a[0]=1
-            else:
-                if r1.val==r2.val:
-                        
-                        che(r1.left,r2.left)
-                        che(r1.right,r2.right)
-                                                
-
-                                                
-
-                else:
-                    a[0]=1
-        che(p,q)
-        if a[0]==1:
+        queue=[[p,q]]
+        if not(p) and not(q):
+            return True
+        elif not(p) or not(q):
             return False
+        while(len(queue)>0):
+            s=queue[0]
+            if s[0].left and not(s[1].left):
+                return False
+            if s[0].right and not(s[1].right):
+                return False
+            if not(s[0].left) and (s[1].left):
+                return False
+            if not(s[0].right) and (s[1].right):
+                return False
+            
+            if s[0].left and s[1].left:
+                queue.append([s[0].left,s[1].left])
+            if s[0].right and s[1].right:
+                queue.append([s[0].right,s[1].right])
+            if s[0].val!=s[1].val:
+                return False
+            queue.remove(queue[0])
         return True
-                    
+    
                 
