@@ -1,16 +1,16 @@
 import math
 class Solution:
     def repeatedStringMatch(self, a: str, b: str) -> int:
-        c=math.ceil(len(b)/len(a))
-        st=""
-        for i in range(c):
-            st+=a
-        if b in st:
-            return c
-        else:
-            st+=a
-            if b in st:
-                return c+1
+        d=(len(b)//len(a))+1
+        k=a
+        
+        if b in a:
+            return 1
+        for i in range(d):
+            a=a+k
+            if b in a:
+                return i+2
         return -1
-        
-        
+            
+            
+            
