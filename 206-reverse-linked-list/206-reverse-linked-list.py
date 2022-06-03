@@ -9,17 +9,12 @@ class Solution:
         
         
         prev=None
-    
-        pre=None
-        nex=head
-        while(nex):
-            prev=pre
-            pre=nex
-            nex=nex.next
-            pre.next=prev
-        head=pre
-        return head
-    
+        curr=None
+        ne=head
+        while(ne):
+            prev=curr
+            curr=ne
+            ne=ne.next
+            curr.next=prev
         
-            
-        
+        return curr
