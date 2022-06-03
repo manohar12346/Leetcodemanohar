@@ -3,8 +3,8 @@ class Solution:
         if n==1:
             return '1'
         else:
-            no=["11"]
-            for i in range(1,n-1):
+            no=["1"]
+            for i in range(1,n):
                 new=""
                 l=1
 
