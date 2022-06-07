@@ -1,72 +1,69 @@
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
-        x=[]
-        a=0
-        ans=0
-        ch_atleast_one_orage=0
+        f=0
+        ap=[]
         for i in range(len(grid)):
             for j in range(len(grid[0])):
                 if grid[i][j]==2:
-                    x.append([i,j])
-                    a=1
-                if grid[i][j]==1:
-                    ch_atleast_one_orage+=1
+                    ap.append([i,j,0])
                     
-        if a==0:
-            if ch_atleast_one_orage>0:
-                return -1
-            else:
-                return 0
-        
+                elif grid[i][j]==1:
+                    f+=1
+        if f==0:
+            return 0
         else:
-            while(len(x)!=0):
-                d=0
-                y=[]
-                while(len(x)!=0):
-                        i,j=x[0][0],x[0][1]
-                        if j+1<len(grid[0]):
-                            if grid[i][j+1]==1:
-                                if [i,j+1] not in x:
-                                    y.append([i,j+1])
-                                    d=1
-                                    grid[i][j+1]=2
-
-                        if i+1<len(grid):
-                            if grid[i+1][j]==1:
-                                if [i+1,j] not in x:
-                                    y.append([i+1,j])
-                                    d=1
-                                    grid[i+1][j]=2
-
-
-                        if i-1>=0:
-                            if grid[i-1][j]==1:
-                                if [i-1,j] not in x:
-                                    y.append([i-1,j])
-                                    d=1
-                                    grid[i-1][j]=2
-
-
-                        if j-1>=0:
-                             if grid[i][j-1]==1:
-                                if [i,j-1] not in x:
-                                    y.append([i,j-1])
-                                    d=1
-                                    grid[i][j-1]=2
-                        x.remove(x[0])
-                if d==1:
-                    ans+=1
+            check=[0]
+            ans=1
+            while(len(ap)):
+                yes=0
+                l,r,c=ap[0][0],ap[0][1],ap[0][2]
+                if l-1>-1:
+                    
+                    if grid[l-1][r]==1:
+                        yes=1
+                        grid[l-1][r]=2
+                        if [l-1,r] not in ap:
+                            ap.append([l-1,r,c+1])
                         
-                for i in y:
-                        x.append(i)
+                if l+1<len(grid):
+                    
+                   
+                        if grid[l+1][r]==1:
+                            yes=1
+                            grid[l+1][r]=2
+                            if [l+1,r] not in ap:
+                                ap.append([l+1,r,c+1])
+                           
+                if r-1 >-1:  
+                    if grid[l][r-1]==1:
+                        yes=1
+                        grid[l][r-1]=2
+                        if [l,r-1] not in ap:
+                            ap.append([l,r-1,c+1])
                         
-                print(grid)
+                if r+1<len(grid[0]):
+                    if grid[l][r+1]==1:
+                        yes=1
+                        grid[l][r+1]=2
+                        if [l,r+1] not in ap:
+                            ap.append([l,r+1,c+1])
+                        print([l,r+1])
+                if yes==1:
+                    if c not in check:
+                        ans+=1
+                        check.append(c)
+                    
+                ap.remove(ap[0])
         for i in range(len(grid)):
             for j in range(len(grid[0])):
                 if grid[i][j]==1:
                     return -1
         return ans
-                  
+                        
+                    
+                    
+                    
+            
                   
                   
             
