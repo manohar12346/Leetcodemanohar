@@ -10,26 +10,24 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        if root:
+        if root==None:
+            return None
+        else:
             que=[root]
-            h=root
-            while(len(que)>0):
+            while(len(que))>0:
                 s=[]
-                while(len(que)>0):
+                while(len(que)>1):
+                    que[0].next=que[1]
                     if que[0].left:
                         s.append(que[0].left)
                     if que[0].right:
                         s.append(que[0].right)
-                    if len(que)==1:
-                        que[0].next=None
-                    else:
-                        que[0].next=que[1]
                     que.remove(que[0])
-               
+                if que[0].left:
+                        s.append(que[0].left)
+                if que[0].right:
+                        s.append(que[0].right) 
                 que=s
-                print(s)
-                
-            return h
-        return None
+        return root
             
         
