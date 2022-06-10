@@ -1,19 +1,20 @@
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
-        f=-100000000000000000000000
-        s=-1000000000000000000000000
-        t=-1000000000000000000000000
-        f=max(nums)
-        
-        for i in nums:
-            if i<f and i>s:
-                s=i
-        for i in nums:
-            if i<s and i>t:
-                t=i
-        print(t)
-        if t!=-1000000000000000000000000:
-            return t
-        return f
+        nums=sorted(nums,reverse=True)
+        co=0
+        print(nums)
+        for i in range(len(nums)-1):
+            if nums[i]!=nums[i+1]:
+                co+=1
+            if co==3:
+                return nums[i]
+        if len(nums)>1:
+            if nums[-1]!=nums[-2]:
+                if co+1==3:
+                    return nums[-1]
+            if nums[-1]==nums[-2]:
+                if co+1==3:
+                    return nums[-2]
+        return max(nums)
                 
         
