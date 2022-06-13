@@ -11,17 +11,22 @@ class Node:
         
 # Return True if the given Binary Tree is a Full Binary Tree. Else return False
 def isFullTree(root):
-    x=[root]
-    while(len(x)>0):
-        if x[0].left and not(x[0].right):
-            return False
-        if x[0].right and not(x[0].left):
-            return False
-        if x[0].left:
-            x.append(x[0].left)
-        if x[0].right:
-            x.append(x[0].right)
-        x.remove(x[0])
+    a=[0]
+    def cg(root):
+        
+        if root==None:
+            return 
+        if root.left and root.right:
+            cg(root.left)
+            cg(root.right)
+        elif root.left or root.right:
+            a[0]=1
+            
+            return
+            
+    cg(root)
+    if a[0]==1:
+        return False
     return True
     #code here
 
