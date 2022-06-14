@@ -4,23 +4,21 @@ class Solution:
     
     #Function to find if there is a celebrity in the party or not.
     def celebrity(self, M, n):
+        # code here 
         i=0
         j=n-1
         while(i<j):
-            if M[i][j]==1:
-                i=i+1
-                j=n-1
-                
+            if M[i][j]==0:
+                j-=1
             else:
-                j=j-1
-        x=i
-        
+                i=i+1
+        c=i
         for i in range(n):
-            if i!=x:
-                if M[i][x]!=1:
+            if M[c][i]==1 or M[i][c]==0:
+                if i!=c:
                     return -1
-        return x
-        # code here 
+            
+        return c
 
 
 #{ 
