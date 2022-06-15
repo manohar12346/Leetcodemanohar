@@ -5,17 +5,19 @@ class Solution:
     #Function to return a list containing the DFS traversal of the graph.
     def dfsOfGraph(self, V, adj):
         # code here
-        visi=[0]*len(adj)
+        visi=[0]*V
         ans=[]
-        visi[0]=1
-        def df(V,adj,s):
-            ans.append(s)
-            for i in adj[s]:
+        def dfs(v):
+            ans.append(v)
+            visi[v]=1
+            for i in adj[v]:
                 if visi[i]==0:
-                    visi[i]=1
-                    df(V,adj,i)
-        df(V,adj,0)
+                    dfs(i)
+        for i in range(V):
+            if visi[i]==0:
+                dfs(i)
         return ans
+        
 
 #{ 
 #  Driver Code Starts
