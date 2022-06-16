@@ -25,7 +25,7 @@ class Solution:
         
         
         
-        for i in range(len(adj)-1):
+        for i in range(len(adj)):
             node=find_node()
             
             for i in adj[node]:
