@@ -12,43 +12,24 @@ class Node:
 
 #Function to return a list containing elements of left view of the binary tree.
 def LeftView(root):
+    if root==None:
+        return []
+    x=[root]
     ans=[]
-    if root:
-        ans.append(root.data)
-        h=root.right
-        root=root.left
-        c=0
-        
-        while(root):
-           
-            if root.left==None:
-                ans.append(root.data)
-                root=root.right
-                c=c+1
-            else:
-                ans.append(root.data)
-                root=root.left
-                c=c+1
-       
-        
-        while(h):
-            if h.left==None:
-                
-                if c<=0:
-                    ans.append(h.data)
-                c=c-1
-                
-                h=h.right
-            else:
-                if c<=0:
-                    ans.append(h.data)
-                c=c-1
-                
-                h=h.left
-    
-    
+    while(len(x)>0):
+        y=[]
+        ans.append(x[0].data)
+        while(len(x)>0):
+            if x[0].left:
+                y.append(x[0].left)
+            if x[0].right:
+                y.append(x[0].right)
+            x.remove(x[0])
+        for i in y:
+            x.append(i)
     return ans
-    
+            
+            
     # code here
 
 #{ 
