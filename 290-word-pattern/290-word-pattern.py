@@ -1,24 +1,19 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        x=[-1]*26
-        s=s.split(" ")
-        o={}
-        if len(s)!=len(pattern):
-            return False
-        else:
-            
-       
-            for i in range(len(pattern)):
-                if x[ord(pattern[i])-ord('a')]!=-1:
-                    if s[i]!=x[ord(pattern[i])-ord('a')]:
-
-                        return False
-                else:
-                    if s[i] in o:
-                        return False
-                    x[ord(pattern[i])-ord('a')]=s[i]
-                    o[s[i]]=1
-
-            return True
-                
         
+        s=s.split(" ")
+        dic={}
+        f={}
+        if len(pattern)!=len(s):
+            return False
+        for i in range(len(pattern)):
+            if pattern[i] not in dic:
+                if s[i] not in f:
+                    dic[pattern[i]]=s[i]
+                    f[s[i]]=1
+                else:
+                    return False
+            else:
+                if dic[pattern[i]]!=s[i]:
+                    return False
+        return True
