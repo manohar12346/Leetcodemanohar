@@ -28,7 +28,7 @@ class Solution:
         # ans=0
         # for i in x:
         #     c+=1
-        #     ans+=x[i]
+        #     # ans+=x[i]
         return [c,ans]
         return [0,1]
                     
